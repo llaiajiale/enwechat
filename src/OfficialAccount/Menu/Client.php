@@ -25,7 +25,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function list()
+    public function lists()
     {
         return $this->httpGet('cgi-bin/menu/get');
     }
@@ -67,7 +67,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function delete(int $menuId = null)
+    public function delete($menuId = null)
     {
         if (is_null($menuId)) {
             return $this->httpGet('cgi-bin/menu/delete');
@@ -83,7 +83,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function match(string $userId)
+    public function match($userId)
     {
         return $this->httpPostJson('cgi-bin/menu/trymatch', ['user_id' => $userId]);
     }

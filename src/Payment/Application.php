@@ -73,7 +73,7 @@ class Application extends ServiceContainer
      *
      * @return string
      */
-    public function scheme(string $productId): string
+    public function scheme($productId)
     {
         $params = [
             'appid' => $this['config']->app_id,
@@ -138,7 +138,7 @@ class Application extends ServiceContainer
      *
      * @return $this
      */
-    public function setSubMerchant(string $mchId, string $appId = null)
+    public function setSubMerchant($mchId, $appId = null)
     {
         $this['config']->set('sub_mch_id', $mchId);
         $this['config']->set('sub_appid', $appId);
@@ -149,7 +149,7 @@ class Application extends ServiceContainer
     /**
      * @return bool
      */
-    public function inSandbox(): bool
+    public function inSandbox()
     {
         return (bool) $this['config']->get('sandbox');
     }
@@ -159,7 +159,7 @@ class Application extends ServiceContainer
      *
      * @return string
      */
-    public function getKey(string $endpoint = null)
+    public function getKey($endpoint = null)
     {
         if ('sandboxnew/pay/getsignkey' === $endpoint) {
             return $this['config']->key;

@@ -71,10 +71,10 @@ class UserClientTest extends TestCase
         $client = $this->mockApiClient(UserClient::class);
 
         $client->expects()->httpGet('cgi-bin/user/get', ['next_openid' => null])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
 
         $client->expects()->httpGet('cgi-bin/user/get', ['next_openid' => 'mock-openid'])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list('mock-openid'));
+        $this->assertSame('mock-result', $client->lists('mock-openid'));
     }
 
     public function testRemark()

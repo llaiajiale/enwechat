@@ -70,7 +70,7 @@ class Encryptor
      * @param string|null $token
      * @param string|null $aesKey
      */
-    public function __construct(string $appId, string $token = null, string $aesKey = null)
+    public function __construct( $appId,  $token = null,  $aesKey = null)
     {
         $this->appId = $appId;
         $this->token = $token;
@@ -82,7 +82,7 @@ class Encryptor
      *
      * @return string
      */
-    public function getToken(): string
+    public function getToken()
     {
         return $this->token;
     }
@@ -98,7 +98,7 @@ class Encryptor
      *
      * @throws \EasyWeChat\Kernel\Exceptions\RuntimeException
      */
-    public function encrypt($xml, $nonce = null, $timestamp = null): string
+    public function encrypt($xml, $nonce = null, $timestamp = null)
     {
         try {
             $xml = $this->pkcs7Pad(str_random(16).pack('N', strlen($xml)).$xml.$this->appId, $this->blockSize);
@@ -141,7 +141,7 @@ class Encryptor
      *
      * @throws \EasyWeChat\Kernel\Exceptions\RuntimeException
      */
-    public function decrypt($content, $msgSignature, $nonce, $timestamp): string
+    public function decrypt($content, $msgSignature, $nonce, $timestamp)
     {
         $signature = $this->signature($this->token, $timestamp, $nonce, $content);
 
@@ -173,7 +173,7 @@ class Encryptor
      *
      * @throws self
      */
-    public function signature(): string
+    public function signature()
     {
         $array = func_get_args();
         sort($array, SORT_STRING);
@@ -191,7 +191,7 @@ class Encryptor
      *
      * @throws \EasyWeChat\Kernel\Exceptions\RuntimeException
      */
-    public function pkcs7Pad(string $text, int $blockSize): string
+    public function pkcs7Pad( $text,  $blockSize)
     {
         if ($blockSize > 256) {
             throw new RuntimeException('$blockSize may not be more than 256');
@@ -209,7 +209,7 @@ class Encryptor
      *
      * @return string
      */
-    public function pkcs7Unpad(string $text): string
+    public function pkcs7Unpad( $text)
     {
         $pad = ord(substr($text, -1));
         if ($pad < 1 || $pad > $this->blockSize) {

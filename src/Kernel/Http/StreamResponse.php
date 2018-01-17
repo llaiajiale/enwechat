@@ -27,7 +27,7 @@ class StreamResponse extends Response
      *
      * @return bool|int
      */
-    public function save(string $directory, string $filename = '')
+    public function save($directory, $filename = '')
     {
         $this->getBody()->rewind();
 
@@ -66,7 +66,7 @@ class StreamResponse extends Response
      *
      * @return bool|int
      */
-    public function saveAs(string $directory, string $filename)
+    public function saveAs($directory, $filename)
     {
         return $this->save($directory, $filename);
     }

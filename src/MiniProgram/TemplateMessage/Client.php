@@ -45,7 +45,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list(int $offset, int $count)
+    public function lists($offset, $count)
     {
         return $this->httpPostJson('cgi-bin/wxopen/template/library/list', compact('offset', 'count'));
     }
@@ -55,7 +55,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function get(string $id)
+    public function get($id)
     {
         return $this->httpPostJson('cgi-bin/wxopen/template/library/get', compact('id'));
     }
@@ -66,7 +66,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function add(string $id, array $keyword)
+    public function add($id, array $keyword)
     {
         return $this->httpPostJson('cgi-bin/wxopen/template/add', [
             'id' => $id,
@@ -79,7 +79,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function delete(string $templateId)
+    public function delete($templateId)
     {
         return $this->httpPostJson('cgi-bin/wxopen/template/del', [
             'template_id' => $templateId,
@@ -92,7 +92,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function getTemplates(int $offset, int $count)
+    public function getTemplates($offset, $count)
     {
         return $this->httpPostJson('cgi-bin/wxopen/template/list', compact('offset', 'count'));
     }

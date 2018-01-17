@@ -38,7 +38,7 @@ class DeviceClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function status(int $applyId)
+    public function status($applyId)
     {
         $params = [
             'apply_id' => $applyId,
@@ -55,7 +55,7 @@ class DeviceClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function update(array $deviceIdentifier, string $comment)
+    public function update(array $deviceIdentifier, $comment)
     {
         $params = [
             'device_identifier' => $deviceIdentifier,
@@ -75,7 +75,7 @@ class DeviceClient extends BaseClient
      *
      * @throws InvalidArgumentException
      */
-    public function bindPoi(array $deviceIdentifier, int $poiId)
+    public function bindPoi(array $deviceIdentifier, $poiId)
     {
         $params = [
             'device_identifier' => $deviceIdentifier,
@@ -92,7 +92,7 @@ class DeviceClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function bindThirdPoi(array $deviceIdentifier, int $poiId, string $appId)
+    public function bindThirdPoi(array $deviceIdentifier, $poiId, $appId)
     {
         $params = [
             'device_identifier' => $deviceIdentifier,
@@ -129,7 +129,7 @@ class DeviceClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list(int $lastId, int $count)
+    public function lists($lastId, $count)
     {
         $params = [
             'type' => 2,
@@ -149,7 +149,7 @@ class DeviceClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function listByApplyId(int $applyId, int $lastId, int $count)
+    public function listByApplyId($applyId, $lastId, $count)
     {
         $params = [
             'type' => 3,

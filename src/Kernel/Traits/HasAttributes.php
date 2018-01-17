@@ -142,7 +142,7 @@ trait HasAttributes
      *
      * @return bool
      */
-    public function has(string $key)
+    public function has( $key)
     {
         return Arr::has($this->attributes, $key);
     }

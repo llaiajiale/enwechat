@@ -46,7 +46,7 @@ class Client extends BaseClient
      *
      * @return array|string
      */
-    public function buildConfig(array $jsApiList, bool $debug = false, bool $beta = false, bool $json = true)
+    public function buildConfig(array $jsApiList, $debug = false, $beta = false, $json = true)
     {
         $config = array_merge(compact('debug', 'beta', 'jsApiList'), $this->configSignature());
 
@@ -62,7 +62,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    public function getConfigArray(array $apis, bool $debug = false, bool $beta = false)
+    public function getConfigArray(array $apis, $debug = false, $beta = false)
     {
         return $this->buildConfig($apis, $debug, $beta, false);
     }
@@ -75,7 +75,7 @@ class Client extends BaseClient
      *
      * @return array|null
      */
-    public function getTicket(bool $refresh = false, string $type = 'jsapi'): array
+    public function getTicket($refresh = false, $type = 'jsapi')
     {
         $cacheKey = sprintf('easywechat.basic_service.jssdk.ticket.%s.%s', $type, $this->getAppId());
 
@@ -102,7 +102,7 @@ class Client extends BaseClient
      *
      * @return array
      */
-    protected function configSignature(string $url = null, string $nonce = null, $timestamp = null): array
+    protected function configSignature( $url = null, $nonce = null, $timestamp = null)
     {
         $url = $url ?: $this->getUrl();
         $nonce = $nonce ?: Support\Str::quickRandom(10);
@@ -127,7 +127,7 @@ class Client extends BaseClient
      *
      * @return string
      */
-    public function getTicketSignature($ticket, $nonce, $timestamp, $url): string
+    public function getTicketSignature($ticket, $nonce, $timestamp, $url)
     {
         return sha1(sprintf('jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s', $ticket, $nonce, $timestamp, $url));
     }
@@ -151,7 +151,7 @@ class Client extends BaseClient
      *
      * @return $this
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
 
@@ -163,7 +163,7 @@ class Client extends BaseClient
      *
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         if ($this->url) {
             return $this->url;

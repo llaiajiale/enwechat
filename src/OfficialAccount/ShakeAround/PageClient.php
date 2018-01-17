@@ -36,7 +36,7 @@ class PageClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function update(int $pageId, array $data)
+    public function update($pageId, array $data)
     {
         return $this->httpPostJson('shakearound/page/update', array_merge(['page_id' => $pageId], $data));
     }
@@ -66,7 +66,7 @@ class PageClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list(int $begin, int $count)
+    public function lists($begin, $count)
     {
         $params = [
             'type' => 2,
@@ -84,7 +84,7 @@ class PageClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function delete(int $pageId)
+    public function delete($pageId)
     {
         $params = [
             'page_id' => $pageId,

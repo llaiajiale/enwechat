@@ -46,7 +46,7 @@ class News extends Message
      *
      * @return array
      */
-    public function propertiesToArray(array $data, array $aliases = []): array
+    public function propertiesToArray(array $data, array $aliases = [])
     {
         return ['articles' => array_map(function ($item) {
             if ($item instanceof NewsItem) {

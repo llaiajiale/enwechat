@@ -50,11 +50,11 @@ class ClientTest extends TestCase
         $client->expects()->httpGet('cgi-bin/department/list', [
             'id' => null,
         ])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
 
         $client->expects()->httpGet('cgi-bin/department/list', [
             'id' => 3,
         ])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list(3));
+        $this->assertSame('mock-result', $client->lists(3));
     }
 }

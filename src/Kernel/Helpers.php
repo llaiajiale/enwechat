@@ -26,11 +26,11 @@ function data_get($data, $key, $default = null)
         case $data instanceof Arrayable:
             return Arr::get($data->toArray(), $key, $default);
         case $data instanceof \ArrayIterator:
-            return $data->getArrayCopy()[$key] ?? $default;
+            return isset($data->getArrayCopy()[$key])?$data->getArrayCopy()[$key]: $default;
         case $data instanceof \ArrayAccess:
-            return $data[$key] ?? $default;
+            return isset($data[$key])? $data[$key] : $default;
         case $data instanceof \IteratorAggregate && $data->getIterator() instanceof \ArrayIterator:
-            return $data->getIterator()->getArrayCopy()[$key] ?? $default;
+            return $data->getIterator()->getArrayCopy()[$key] ? $data->getIterator()->getArrayCopy()[$key]: $default;
         default:
             throw new RuntimeException(sprintf('Can\'t access data with key "%s"', $key));
     }

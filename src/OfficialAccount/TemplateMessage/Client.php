@@ -164,7 +164,7 @@ class Client extends BaseClient
             $params[$key] = empty($value) ? $this->message[$key] : $value;
         }
 
-        $params['data'] = $this->formatData($params['data'] ?? []);
+        $params['data'] = $this->formatData($params['data'] ?: []);
 
         return $params;
     }

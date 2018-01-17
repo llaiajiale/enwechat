@@ -28,8 +28,8 @@ class BaseClientTest extends TestCase
         $methods = implode(',', (array) $methods);
 
         return \Mockery::mock(BaseClient::class."[{$methods}]", [
-            $app ?? \Mockery::mock(ServiceContainer::class),
-            $accessToken ?? \Mockery::mock(AccessToken::class),
+            $app ?: \Mockery::mock(ServiceContainer::class),
+            $accessToken ?: \Mockery::mock(AccessToken::class),
         ]);
     }
 

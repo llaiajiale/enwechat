@@ -28,7 +28,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function create(string $tagName, int $tagId = null)
+    public function create($tagName, $tagId = null)
     {
         $params = [
             'tagname' => $tagName,
@@ -46,7 +46,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function update(int $tagId, string $tagName)
+    public function update($tagId, $tagName)
     {
         $params = [
             'tagid' => $tagId,
@@ -63,7 +63,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function delete(int $tagId)
+    public function delete($tagId)
     {
         return $this->httpGet('cgi-bin/tag/delete', ['tagid' => $tagId]);
     }
@@ -73,7 +73,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function get(int $tagId)
+    public function get($tagId)
     {
         return $this->httpGet('cgi-bin/tag/get', ['tagid' => $tagId]);
     }
@@ -84,7 +84,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function tagUsers(int $tagId, array $userList = [])
+    public function tagUsers($tagId, array $userList = [])
     {
         return $this->tagOrUntagUsers('cgi-bin/tag/addtagusers', $tagId, $userList);
     }
@@ -95,7 +95,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function tagDepartments(int $tagId, array $partyList = [])
+    public function tagDepartments($tagId, array $partyList = [])
     {
         return $this->tagOrUntagUsers('cgi-bin/tag/addtagusers', $tagId, [], $partyList);
     }
@@ -106,7 +106,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function untagUsers(int $tagId, array $userList = [])
+    public function untagUsers($tagId, array $userList = [])
     {
         return $this->tagOrUntagUsers('cgi-bin/tag/deltagusers', $tagId, $userList);
     }
@@ -117,7 +117,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    public function untagDepartments(int $tagId, array $partyList = [])
+    public function untagDepartments($tagId, array $partyList = [])
     {
         return $this->tagOrUntagUsers('cgi-bin/tag/deltagusers', $tagId, [], $partyList);
     }
@@ -130,7 +130,7 @@ class TagClient extends BaseClient
      *
      * @return mixed
      */
-    protected function tagOrUntagUsers(string $endpoint, int $tagId, array $userList = [], array $partyList = [])
+    protected function tagOrUntagUsers($endpoint, $tagId, array $userList = [], array $partyList = [])
     {
         $data = [
             'tagid' => $tagId,
@@ -144,7 +144,7 @@ class TagClient extends BaseClient
     /**
      * @return mixed
      */
-    public function list()
+    public function lists()
     {
         return $this->httpGet('cgi-bin/tag/list');
     }

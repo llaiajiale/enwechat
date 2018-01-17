@@ -38,6 +38,6 @@ class ClientTest extends TestCase
     {
         $client = $this->mockApiClient(Client::class);
         $client->expects()->httpGet('cgi-bin/agent/list')->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
     }
 }

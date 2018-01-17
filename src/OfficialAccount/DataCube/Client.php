@@ -28,7 +28,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userSummary(string $from, string $to)
+    public function userSummary($from, $to)
     {
         return $this->query('datacube/getusersummary', $from, $to);
     }
@@ -41,7 +41,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userCumulate(string $from, string $to)
+    public function userCumulate($from, $to)
     {
         return $this->query('datacube/getusercumulate', $from, $to);
     }
@@ -54,7 +54,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function articleSummary(string $from, string $to)
+    public function articleSummary($from, $to)
     {
         return $this->query('datacube/getarticlesummary', $from, $to);
     }
@@ -67,7 +67,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function articleTotal(string $from, string $to)
+    public function articleTotal($from, $to)
     {
         return $this->query('datacube/getarticletotal', $from, $to);
     }
@@ -80,7 +80,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userReadSummary(string $from, string $to)
+    public function userReadSummary($from, $to)
     {
         return $this->query('datacube/getuserread', $from, $to);
     }
@@ -93,7 +93,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userReadHourly(string $from, string $to)
+    public function userReadHourly($from, $to)
     {
         return $this->query('datacube/getuserreadhour', $from, $to);
     }
@@ -106,7 +106,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userShareSummary(string $from, string $to)
+    public function userShareSummary($from, $to)
     {
         return $this->query('datacube/getusershare', $from, $to);
     }
@@ -119,7 +119,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function userShareHourly(string $from, string $to)
+    public function userShareHourly($from, $to)
     {
         return $this->query('datacube/getusersharehour', $from, $to);
     }
@@ -132,7 +132,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageSummary(string $from, string $to)
+    public function upstreamMessageSummary($from, $to)
     {
         return $this->query('datacube/getupstreammsg', $from, $to);
     }
@@ -145,7 +145,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageHourly(string $from, string $to)
+    public function upstreamMessageHourly($from, $to)
     {
         return $this->query('datacube/getupstreammsghour', $from, $to);
     }
@@ -158,7 +158,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageWeekly(string $from, string $to)
+    public function upstreamMessageWeekly($from, $to)
     {
         return $this->query('datacube/getupstreammsgweek', $from, $to);
     }
@@ -171,7 +171,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageMonthly(string $from, string $to)
+    public function upstreamMessageMonthly($from, $to)
     {
         return $this->query('datacube/getupstreammsgmonth', $from, $to);
     }
@@ -184,7 +184,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageDistSummary(string $from, string $to)
+    public function upstreamMessageDistSummary($from, $to)
     {
         return $this->query('datacube/getupstreammsgdist', $from, $to);
     }
@@ -197,7 +197,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageDistWeekly(string $from, string $to)
+    public function upstreamMessageDistWeekly($from, $to)
     {
         return $this->query('datacube/getupstreammsgdistweek', $from, $to);
     }
@@ -210,7 +210,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function upstreamMessageDistMonthly(string $from, string $to)
+    public function upstreamMessageDistMonthly($from, $to)
     {
         return $this->query('datacube/getupstreammsgdistmonth', $from, $to);
     }
@@ -223,7 +223,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function interfaceSummary(string $from, string $to)
+    public function interfaceSummary($from, $to)
     {
         return $this->query('datacube/getinterfacesummary', $from, $to);
     }
@@ -236,7 +236,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function interfaceSummaryHourly(string $from, string $to)
+    public function interfaceSummaryHourly($from, $to)
     {
         return $this->query('datacube/getinterfacesummaryhour', $from, $to);
     }
@@ -250,7 +250,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function cardSummary(string $from, string $to, $condSource = 0)
+    public function cardSummary($from, $to, $condSource = 0)
     {
         $ext = [
             'cond_source' => intval($condSource),
@@ -269,7 +269,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function freeCardSummary(string $from, string $to, int $condSource = 0, string $cardId = '')
+    public function freeCardSummary($from, $to, $condSource = 0, $cardId = '')
     {
         $ext = [
             'cond_source' => intval($condSource),
@@ -288,7 +288,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function memberCardSummary(string $from, string $to, $condSource = 0)
+    public function memberCardSummary($from, $to, $condSource = 0)
     {
         $ext = [
             'cond_source' => intval($condSource),
@@ -307,7 +307,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    protected function query(string $api, string $from, string $to, array $ext = [])
+    protected function query($api, $from, $to, array $ext = [])
     {
         $params = array_merge([
             'begin_date' => $from,

@@ -27,7 +27,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function create(string $name)
+    public function create($name)
     {
         $params = [
             'tag' => ['name' => $name],
@@ -41,7 +41,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list()
+    public function lists()
     {
         return $this->httpGet('cgi-bin/tags/get');
     }
@@ -54,7 +54,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function update(int $tagId, string $name)
+    public function update($tagId, $name)
     {
         $params = [
             'tag' => [
@@ -73,7 +73,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function delete(int $tagId)
+    public function delete($tagId)
     {
         $params = [
             'tag' => ['id' => $tagId],
@@ -89,7 +89,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function userTags(string $openid)
+    public function userTags($openid)
     {
         $params = ['openid' => $openid];
 
@@ -104,7 +104,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function usersOfTag(int $tagId, string $nextOpenId = '')
+    public function usersOfTag($tagId, $nextOpenId = '')
     {
         $params = [
             'tagid' => $tagId,
@@ -122,7 +122,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function tagUsers(array $openids, int $tagId)
+    public function tagUsers(array $openids, $tagId)
     {
         $params = [
             'openid_list' => $openids,
@@ -140,7 +140,7 @@ class TagClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function untagUsers(array $openids, int $tagId)
+    public function untagUsers(array $openids, $tagId)
     {
         $params = [
             'openid_list' => $openids,

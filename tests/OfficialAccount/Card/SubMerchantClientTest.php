@@ -82,7 +82,7 @@ class SubMerchantClientTest extends TestCase
             'status' => 'CHECKING',
         ])->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
 
         $client->expects()->httpPostJson('card/submerchant/batchget', [
             'begin_id' => 10,
@@ -90,6 +90,6 @@ class SubMerchantClientTest extends TestCase
             'status' => 'CHECKED',
         ])->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list(10, 20, 'CHECKED'));
+        $this->assertSame('mock-result', $client->lists(10, 20, 'CHECKED'));
     }
 }

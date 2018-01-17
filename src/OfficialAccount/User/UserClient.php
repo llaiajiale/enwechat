@@ -28,7 +28,7 @@ class UserClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function get(string $openid, string $lang = 'zh_CN')
+    public function get($openid, $lang = 'zh_CN')
     {
         $params = [
             'openid' => $openid,
@@ -46,7 +46,7 @@ class UserClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function select(array $openids, string $lang = 'zh_CN')
+    public function select(array $openids, $lang = 'zh_CN')
     {
         return $this->httpPostJson('cgi-bin/user/info/batchget', [
             'user_list' => array_map(function ($openid) use ($lang) {
@@ -65,7 +65,7 @@ class UserClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list(string $nextOpenId = null)
+    public function lists($nextOpenId = null)
     {
         $params = ['next_openid' => $nextOpenId];
 
@@ -80,7 +80,7 @@ class UserClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function remark(string $openid, string $remark)
+    public function remark($openid, $remark)
     {
         $params = [
             'openid' => $openid,
@@ -97,7 +97,7 @@ class UserClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function blacklist(string $beginOpenid = null)
+    public function blacklist($beginOpenid = null)
     {
         $params = ['begin_openid' => $beginOpenid];
 

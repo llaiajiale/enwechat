@@ -40,7 +40,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function update(int $id, array $data)
+    public function update($id, array $data)
     {
         return $this->httpPostJson('cgi-bin/department/update', array_merge(compact('id'), $data));
     }
@@ -64,7 +64,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function list($id = null)
+    public function lists($id = null)
     {
         return $this->httpGet('cgi-bin/department/list', compact('id'));
     }

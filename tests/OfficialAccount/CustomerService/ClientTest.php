@@ -23,7 +23,7 @@ class ClientTest extends TestCase
 
         $client->expects()->httpGet('cgi-bin/customservice/getkflist')->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
     }
 
     public function testOnline()

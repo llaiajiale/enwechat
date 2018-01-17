@@ -28,7 +28,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function summaryTrend(string $from, string $to)
+    public function summaryTrend($from, $to)
     {
         return $this->query('datacube/getweanalysisappiddailysummarytrend', $from, $to);
     }
@@ -41,7 +41,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function dailyVisitTrend(string $from, string $to)
+    public function dailyVisitTrend($from, $to)
     {
         return $this->query('datacube/getweanalysisappiddailyvisittrend', $from, $to);
     }
@@ -54,7 +54,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function weeklyVisitTrend(string $from, string $to)
+    public function weeklyVisitTrend($from, $to)
     {
         return $this->query('datacube/getweanalysisappidweeklyvisittrend', $from, $to);
     }
@@ -67,7 +67,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function monthlyVisitTrend(string $from, string $to)
+    public function monthlyVisitTrend($from, $to)
     {
         return $this->query('datacube/getweanalysisappidmonthlyvisittrend', $from, $to);
     }
@@ -80,7 +80,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function visitDistribution(string $from, string $to)
+    public function visitDistribution($from, $to)
     {
         return $this->query('datacube/getweanalysisappidvisitdistribution', $from, $to);
     }
@@ -93,7 +93,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function dailyRetainInfo(string $from, string $to)
+    public function dailyRetainInfo($from, $to)
     {
         return $this->query('datacube/getweanalysisappiddailyretaininfo', $from, $to);
     }
@@ -106,7 +106,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function weeklyRetainInfo(string $from, string $to)
+    public function weeklyRetainInfo($from, $to)
     {
         return $this->query('datacube/getweanalysisappidweeklyretaininfo', $from, $to);
     }
@@ -119,7 +119,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function monthlyRetainInfo(string $from, string $to)
+    public function monthlyRetainInfo($from, $to)
     {
         return $this->query('datacube/getweanalysisappidmonthlyretaininfo', $from, $to);
     }
@@ -132,7 +132,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function visitPage(string $from, string $to)
+    public function visitPage($from, $to)
     {
         return $this->query('datacube/getweanalysisappidvisitpage', $from, $to);
     }
@@ -145,7 +145,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function userPortrait(string $from, string $to)
+    public function userPortrait($from, $to)
     {
         return $this->query('datacube/getweanalysisappiduserportrait', $from, $to);
     }
@@ -159,7 +159,7 @@ class Client extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    protected function query(string $api, string $from, string $to)
+    protected function query($api, $from, $to)
     {
         $params = [
             'begin_date' => $from,

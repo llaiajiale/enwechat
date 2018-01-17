@@ -37,7 +37,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function uploadImage(string $path)
+    public function uploadImage($path)
     {
         return $this->upload('image', $path);
     }
@@ -49,7 +49,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function uploadVoice(string $path)
+    public function uploadVoice($path)
     {
         return $this->upload('voice', $path);
     }
@@ -61,7 +61,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function uploadThumb(string $path)
+    public function uploadThumb($path)
     {
         return $this->upload('thumb', $path);
     }
@@ -75,7 +75,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function uploadVideo(string $path, string $title, string $description)
+    public function uploadVideo($path, $title, $description)
     {
         $params = [
             'description' => json_encode(
@@ -121,7 +121,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function updateArticle(string $mediaId, $article, int $index = 0)
+    public function updateArticle($mediaId, $article, $index = 0)
     {
         if ($article instanceof Article) {
             $article = $article->transformForJsonRequestWithoutType();
@@ -143,7 +143,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function uploadArticleImage(string $path)
+    public function uploadArticleImage($path)
     {
         return $this->upload('news_image', $path);
     }
@@ -155,7 +155,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function get(string $mediaId)
+    public function get($mediaId)
     {
         $response = $this->requestRaw('cgi-bin/material/get_material', 'POST', ['json' => ['media_id' => $mediaId]]);
 
@@ -173,7 +173,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function delete(string $mediaId)
+    public function delete($mediaId)
     {
         return $this->httpPostJson('cgi-bin/material/del_material', ['media_id' => $mediaId]);
     }
@@ -201,7 +201,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function list(string $type, int $offset = 0, int $count = 20)
+    public function lists($type, $offset = 0, $count = 20)
     {
         $params = [
             'type' => $type,
@@ -233,7 +233,7 @@ class Client extends BaseClient
      *
      * @throws InvalidArgumentException
      */
-    public function upload(string $type, string $path, array $form = [])
+    public function upload($type, $path, array $form = [])
     {
         if (!file_exists($path) || !is_readable($path)) {
             throw new InvalidArgumentException(sprintf('File does not exist, or the file is unreadable: "%s"', $path));
@@ -251,7 +251,7 @@ class Client extends BaseClient
      *
      * @return string
      */
-    public function getApiByType(string $type)
+    public function getApiByType($type)
     {
         switch ($type) {
             case 'news_image':

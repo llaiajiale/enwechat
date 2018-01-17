@@ -21,5 +21,5 @@ interface MediaInterface extends MessageInterface
     /**
      * @return string
      */
-    public function getMediaId(): string;
+    public function getMediaId();
 }

@@ -33,7 +33,7 @@ class Raw extends Message
      *
      * @param string $content
      */
-    public function __construct(string $content)
+    public function __construct($content)
     {
         parent::__construct(['content' => strval($content)]);
     }
@@ -44,13 +44,13 @@ class Raw extends Message
      *
      * @return array
      */
-    public function transformForJsonRequest(array $appends = [], $withType = true): array
+    public function transformForJsonRequest(array $appends = [], $withType = true)
     {
-        return json_decode($this->content, true) ?? [];
+        return json_decode($this->content, true) ?: [];
     }
 
     public function __toString()
     {
-        return $this->get('content') ?? '';
+        return $this->get('content') ?: '';
     }
 }

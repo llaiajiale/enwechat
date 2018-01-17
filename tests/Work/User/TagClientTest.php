@@ -33,7 +33,7 @@ class TagClientTest extends TestCase
         $client = $this->mockApiClient(TagClient::class);
 
         $client->expects()->httpGet('cgi-bin/tag/list')->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
     }
 
     public function testUpdate()

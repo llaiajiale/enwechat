@@ -54,7 +54,7 @@ class ClientTest extends TestCase
 
         $client->expects()->httpPostJson('cgi-bin/wxopen/template/library/list', ['offset' => 5, 'count' => 10])->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list(5, 10));
+        $this->assertSame('mock-result', $client->lists(5, 10));
     }
 
     public function testGet()

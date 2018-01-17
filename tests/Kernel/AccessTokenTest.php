@@ -268,8 +268,7 @@ class DummyAccessTokenForTest extends AccessToken
 
     protected $tokenKey = 'foo';
 
-    protected function getCredentials(): array
-    {
+    protected function getCredentials(){
         return [
             'appid' => 1234,
             'secret' => 'pas33w0rd',

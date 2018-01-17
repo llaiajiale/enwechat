@@ -191,21 +191,21 @@ class ClientTest extends TestCase
             'offset' => 0,
             'count' => 20,
         ])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list('image'));
+        $this->assertSame('mock-result', $client->lists('image'));
 
         $client->expects()->httpPostJson('cgi-bin/material/batchget_material', [
             'type' => 'image',
             'offset' => 1,
             'count' => 20,
         ])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list('image', 1));
+        $this->assertSame('mock-result', $client->lists('image', 1));
 
         $client->expects()->httpPostJson('cgi-bin/material/batchget_material', [
             'type' => 'image',
             'offset' => 1,
             'count' => 10,
         ])->andReturn('mock-result')->once();
-        $this->assertSame('mock-result', $client->list('image', 1, 10));
+        $this->assertSame('mock-result', $client->lists('image', 1, 10));
     }
 
     public function testStats()

@@ -37,7 +37,7 @@ class TestCase extends BaseTestCase
         ], (array) $methods));
 
         $client = \Mockery::mock($name."[{$methods}]", [
-                $app ?? \Mockery::mock(ServiceContainer::class),
+                $app ? $app :  \Mockery::mock(ServiceContainer::class),
                 \Mockery::mock(AccessToken::class), ]
         )->shouldAllowMockingProtectedMethods();
         $client->allows()->registerHttpMiddlewares()->andReturnNull();

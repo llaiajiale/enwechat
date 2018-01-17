@@ -52,7 +52,7 @@ class ClientTest extends TestCase
             'type' => 1,
         ])->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list('mock-id', 3, 0, 20, 1));
+        $this->assertSame('mock-result', $client->lists('mock-id', 3, 0, 20, 1));
     }
 
     public function testMarkElect()

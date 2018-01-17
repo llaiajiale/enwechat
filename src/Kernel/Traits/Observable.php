@@ -181,7 +181,7 @@ trait Observable
             }
 
             return function ($payload) use ($handler) {
-                return (new $handler($this->app ?? null))->handle($payload);
+                return (new $handler($this->app ?: null))->handle($payload);
             };
         }
 
@@ -202,7 +202,7 @@ trait Observable
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      */
-    protected function resolveHandlerAndCondition($handler, $condition): array
+    protected function resolveHandlerAndCondition($handler, $condition)
     {
         if (is_int($handler) || (is_string($handler) && !class_exists($handler))) {
             list($handler, $condition) = [$condition, $handler];

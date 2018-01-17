@@ -79,9 +79,9 @@ class ServerGuard
     {
         $this->app = $app;
 
-        foreach ($this->app->extension->observers() as $observer) {
-            call_user_func_array([$this, 'push'], $observer);
-        }
+//        foreach ($this->app->extension->observers() as $observer) {
+//            call_user_func_array([$this, 'push'], $observer);
+//        }
     }
 
     /**
@@ -93,7 +93,7 @@ class ServerGuard
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function serve(): Response
+    public function serve()
     {
         $this->app['logger']->debug('Request received:', [
             'method' => $this->app['request']->getMethod(),
@@ -178,7 +178,7 @@ class ServerGuard
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    protected function resolve(): Response
+    protected function resolve()
     {
         $result = $this->handleRequest();
 
@@ -210,7 +210,7 @@ class ServerGuard
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      */
-    public function buildResponse(string $to, string $from, $message)
+    public function buildResponse($to, $from, $message)
     {
         if (empty($message) || self::SUCCESS_EMPTY_RESPONSE === $message) {
             return self::SUCCESS_EMPTY_RESPONSE;
@@ -244,17 +244,17 @@ class ServerGuard
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    protected function handleRequest(): array
+    protected function handleRequest()
     {
         $castedMessage = $this->getMessage();
 
         $messageArray = $this->detectAndCastResponseToType($castedMessage, 'array');
 
-        $response = $this->dispatch(self::MESSAGE_TYPE_MAPPING[$messageArray['MsgType'] ?? $messageArray['msg_type'] ?? 'text'], $castedMessage);
+        $response = $this->dispatch(self::MESSAGE_TYPE_MAPPING[$messageArray['MsgType'] ?: $messageArray['msg_type'] ?: 'text'], $castedMessage);
 
         return [
-            'to' => $messageArray['FromUserName'] ?? '',
-            'from' => $messageArray['ToUserName'] ?? '',
+            'to' => $messageArray['FromUserName'] ?: '',
+            'from' => $messageArray['ToUserName'] ?: '',
             'response' => $response,
         ];
     }
@@ -268,7 +268,7 @@ class ServerGuard
      *
      * @return string
      */
-    protected function buildReply(string $to, string $from, MessageInterface $message): string
+    protected function buildReply($to, $from, MessageInterface $message)
     {
         $prepends = [
             'ToUserName' => $to,
@@ -332,7 +332,7 @@ class ServerGuard
      *
      * @return bool
      */
-    protected function isSafeMode(): bool
+    protected function isSafeMode()
     {
         if ($this->alwaysValidate) {
             return true;
@@ -344,7 +344,7 @@ class ServerGuard
     /**
      * @return bool
      */
-    protected function shouldReturnRawResponse(): bool
+    protected function shouldReturnRawResponse()
     {
         return false;
     }

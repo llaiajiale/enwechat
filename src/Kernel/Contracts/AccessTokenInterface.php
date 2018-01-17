@@ -23,12 +23,12 @@ interface AccessTokenInterface
     /**
      * @return array
      */
-    public function getToken(): array;
+    public function getToken();
 
     /**
      * @return \EasyWeChat\Kernel\Contracts\AccessTokenInterface
      */
-    public function refresh(): self;
+    public function refresh();
 
     /**
      * @param \Psr\Http\Message\RequestInterface $request
@@ -36,5 +36,5 @@ interface AccessTokenInterface
      *
      * @return \Psr\Http\Message\RequestInterface
      */
-    public function applyToRequest(RequestInterface $request, array $requestOptions = []): RequestInterface;
+    public function applyToRequest($request, array $requestOptions = []);
 }

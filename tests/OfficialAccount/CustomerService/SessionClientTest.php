@@ -24,7 +24,7 @@ class SessionClientTest extends TestCase
             'kf_account' => 'overtrue@test',
         ])->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list('overtrue@test'));
+        $this->assertSame('mock-result', $client->lists('overtrue@test'));
     }
 
     public function testWaiting()

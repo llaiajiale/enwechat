@@ -65,7 +65,7 @@ class Application extends ServiceContainer
      *
      * @return \EasyWeChat\OpenPlatform\Authorizer\OfficialAccount\Application
      */
-    public function officialAccount(string $appId, string $refreshToken = null, AccessToken $accessToken = null): OfficialAccount
+    public function officialAccount($appId, $refreshToken = null, AccessToken $accessToken = null)
     {
         $application = new OfficialAccount($this->getAuthorizerConfig($appId, $refreshToken), $this->getReplaceServices($accessToken) + [
             'encryptor' => $this['encryptor'],
@@ -88,7 +88,7 @@ class Application extends ServiceContainer
      *
      * @return \EasyWeChat\OpenPlatform\Authorizer\MiniProgram\Application
      */
-    public function miniProgram(string $appId, string $refreshToken = null, AccessToken $accessToken = null): MiniProgram
+    public function miniProgram($appId, $refreshToken = null, AccessToken $accessToken = null)
     {
         return new MiniProgram($this->getAuthorizerConfig($appId, $refreshToken), $this->getReplaceServices($accessToken) + [
             'encryptor' => function () {
@@ -109,7 +109,7 @@ class Application extends ServiceContainer
      *
      * @return string
      */
-    public function getPreAuthorizationUrl(string $callbackUrl, string $authCode = null): string
+    public function getPreAuthorizationUrl($callbackUrl, $authCode = null)
     {
         $queries = [
             'component_appid' => $this['config']['app_id'],
@@ -126,7 +126,7 @@ class Application extends ServiceContainer
      *
      * @return array
      */
-    protected function getAuthorizerConfig(string $appId, string $refreshToken = null): array
+    protected function getAuthorizerConfig($appId, $refreshToken = null)
     {
         return [
             'debug' => $this['config']->get('debug', false),
@@ -142,7 +142,7 @@ class Application extends ServiceContainer
      *
      * @return array
      */
-    protected function getReplaceServices(AccessToken $accessToken = null): array
+    protected function getReplaceServices(AccessToken $accessToken = null)
     {
         return [
             'access_token' => $accessToken ?: function ($app) {

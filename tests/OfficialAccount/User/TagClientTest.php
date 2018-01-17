@@ -33,7 +33,7 @@ class TagClientTest extends TestCase
 
         $client->expects()->httpGet('cgi-bin/tags/get')->andReturn('mock-result')->once();
 
-        $this->assertSame('mock-result', $client->list());
+        $this->assertSame('mock-result', $client->lists());
     }
 
     public function testUpdate()

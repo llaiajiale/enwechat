@@ -11,7 +11,7 @@
 
 namespace EasyWeChat\Kernel;
 
-use EasyWeChatComposer\Extension;
+//use EasyWeChatComposer\Extension;
 use GuzzleHttp\Client;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Handler\HandlerInterface;
@@ -125,7 +125,7 @@ class ServiceContainer extends Container
         }
 
         $this['extension'] = function ($app) {
-            return new Extension($app);
+            //return new Extension($app);
         };
 
         return $this;

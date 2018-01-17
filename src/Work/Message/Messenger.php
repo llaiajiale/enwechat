@@ -87,7 +87,7 @@ class Messenger
      *
      * @return \EasyWeChat\Work\Message\Messenger
      */
-    public function ofAgent(int $agentId)
+    public function ofAgent($agentId)
     {
         $this->agentId = $agentId;
 
@@ -142,7 +142,7 @@ class Messenger
      *
      * @return \EasyWeChat\Work\Message\Messenger
      */
-    protected function setRecipients($ids, string $key): self
+    protected function setRecipients($ids, $key)
     {
         if (is_array($ids)) {
             $ids = implode('|', $ids);

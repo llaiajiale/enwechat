@@ -27,7 +27,7 @@ class SessionClient extends BaseClient
      *
      * @return mixed
      */
-    public function list(string $account)
+    public function lists($account)
     {
         return $this->httpGet('customservice/kfsession/getsessionlist', ['kf_account' => $account]);
     }
@@ -50,7 +50,7 @@ class SessionClient extends BaseClient
      *
      * @return mixed
      */
-    public function create(string $account, string $openid)
+    public function create($account, $openid)
     {
         $params = [
             'kf_account' => $account,
@@ -68,7 +68,7 @@ class SessionClient extends BaseClient
      *
      * @return mixed
      */
-    public function close(string $account, string $openid)
+    public function close($account, $openid)
     {
         $params = [
             'kf_account' => $account,
@@ -85,7 +85,7 @@ class SessionClient extends BaseClient
      *
      * @return mixed
      */
-    public function get(string $openid)
+    public function get($openid)
     {
         return $this->httpGet('customservice/kfsession/getsession', ['openid' => $openid]);
     }

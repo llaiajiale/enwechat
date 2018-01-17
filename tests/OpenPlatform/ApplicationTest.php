@@ -95,13 +95,17 @@ class ApplicationTest extends TestCase
     public function testDynamicCalls()
     {
         $app = new Application(['app_id' => 'component-app-id', 'secret' => 'component-secret', 'token' => 'component-token', 'aes_key' => 'Qqx2S6jV3mp5prWPg5x3eBmeU1kLayZio4Q9ZxWTbmf']);
-        $app['base'] = new class() {
-            public function dummyMethod()
-            {
-                return 'mock-result';
-            }
-        };
+
+
+        $app['base'] = new AppBase;
 
         $this->assertSame('mock-result', $app->dummyMethod());
+    }
+}
+
+class AppBase{
+    public function dummyMethod()
+    {
+        return 'mock-result';
     }
 }

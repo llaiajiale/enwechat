@@ -31,7 +31,7 @@ class MaterialClient extends BaseClient
      *
      * @throws InvalidArgumentException
      */
-    public function uploadImage(string $path, string $type = 'icon')
+    public function uploadImage($path, $type = 'icon')
     {
         if (!file_exists($path) || !is_readable($path)) {
             throw new InvalidArgumentException(sprintf('File does not exist, or the file is unreadable: "%s"', $path));

@@ -28,7 +28,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function deposit(string $cardId, array $codes)
+    public function deposit($cardId, array $codes)
     {
         $params = [
             'card_id' => $cardId,
@@ -45,7 +45,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function getDepositedCount(string $cardId)
+    public function getDepositedCount($cardId)
     {
         $params = [
             'card_id' => $cardId,
@@ -62,7 +62,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function check(string $cardId, array $codes)
+    public function check($cardId, array $codes)
     {
         $params = [
             'card_id' => $cardId,
@@ -81,7 +81,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function get(string $code, string $cardId = '', bool $checkConsume = true)
+    public function get( $code,  $cardId = '',  $checkConsume = true)
     {
         $params = [
             'code' => $code,
@@ -101,7 +101,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function update(string $code, string $newCode, string $cardId = '')
+    public function update( $code,  $newCode,  $cardId = '')
     {
         $params = [
             'code' => $code,
@@ -120,7 +120,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function disable(string $code, string $cardId = '')
+    public function disable( $code,  $cardId = '')
     {
         $params = [
             'code' => $code,
@@ -138,7 +138,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function consume(string $code, string $cardId = null)
+    public function consume( $code,  $cardId = null)
     {
         $params = [
             'code' => $code,
@@ -158,7 +158,7 @@ class CodeClient extends BaseClient
      *
      * @return mixed
      */
-    public function decrypt(string $encryptedCode)
+    public function decrypt( $encryptedCode)
     {
         $params = [
             'encrypt_code' => $encryptedCode,
