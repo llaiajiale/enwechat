@@ -53,7 +53,7 @@ class Client extends BaseClient
     {
         $base = [
             'total_num' => 1,
-            'client_ip' => $params['client_ip'] ?? Support\get_server_ip(),
+            'client_ip' => $params['client_ip'] ?: Support\get_server_ip(),
             'wxappid' => $this->app['config']->app_id,
         ];
 
