@@ -29,7 +29,7 @@ class Client extends BaseClient
      *
      * @return \EasyWeChat\Kernel\Http\StreamResponse
      */
-    public function get(string $path, array $optional = [])
+    public function get($path, array $optional = [])
     {
         $params = array_merge([
             'path' => $path,
@@ -46,7 +46,7 @@ class Client extends BaseClient
      *
      * @return \EasyWeChat\Kernel\Http\StreamResponse
      */
-    public function getUnlimit(string $scene, array $optional = [])
+    public function getUnlimit($scene, array $optional = [])
     {
         $params = array_merge([
             'scene' => $scene,
@@ -63,7 +63,7 @@ class Client extends BaseClient
      *
      * @return \EasyWeChat\Kernel\Http\StreamResponse
      */
-    public function getQrCode(string $path, int $width = null)
+    public function getQrCode($path, $width = null)
     {
         return $this->getStream('cgi-bin/wxaapp/createwxaqrcode', compact('path', 'width'));
     }
@@ -76,7 +76,7 @@ class Client extends BaseClient
      *
      * @return \EasyWeChat\Kernel\Http\StreamResponse
      */
-    protected function getStream(string $endpoint, array $params)
+    protected function getStream($endpoint, array $params)
     {
         return StreamResponse::buildFromPsrResponse($this->requestRaw($endpoint, 'POST', ['json' => $params]));
     }

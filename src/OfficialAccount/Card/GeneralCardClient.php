@@ -38,7 +38,7 @@ class GeneralCardClient extends Client
      *
      * @return mixed
      */
-    public function deactivate(string $cardId, string $code)
+    public function deactivate($cardId, $code)
     {
         $params = [
             'card_id' => $cardId,

@@ -41,7 +41,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function bindTo(string $openAppId)
+    public function bindTo($openAppId)
     {
         $params = [
             'appid' => $this->app['config']['app_id'],
@@ -58,7 +58,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function unbindFrom(string $openAppId)
+    public function unbindFrom($openAppId)
     {
         $params = [
             'appid' => $this->app['config']['app_id'],

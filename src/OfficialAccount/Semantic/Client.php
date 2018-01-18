@@ -29,7 +29,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function query(string $keyword, string $categories, array $optional = [])
+    public function query($keyword, $categories, array $optional = [])
     {
         $params = [
             'query' => $keyword,

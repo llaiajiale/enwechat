@@ -27,10 +27,10 @@ use EasyWeChat\OpenPlatform\Authorizer\Server\Guard;
  * @property \EasyWeChat\OpenPlatform\Auth\AccessToken    $access_token
  * @property \EasyWeChat\OpenPlatform\CodeTemplate\Client $code_template
  *
- * @method mixed handleAuthorize(string $authCode = null)
- * @method mixed getAuthorizer(string $appId)
- * @method mixed getAuthorizerOption(string $appId, string $name)
- * @method mixed setAuthorizerOption(string $appId, string $name, string $value)
+ * @method mixed handleAuthorize( $authCode = null)
+ * @method mixed getAuthorizer( $appId)
+ * @method mixed getAuthorizerOption( $appId,  $name)
+ * @method mixed setAuthorizerOption( $appId,  $name,  $value)
  * @method mixed getAuthorizers($offset = 0, $count = 500)
  * @method mixed createPreAuthorizationCode()
  */

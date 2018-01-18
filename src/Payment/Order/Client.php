@@ -32,7 +32,7 @@ class Client extends BaseClient
         }
 
         $params['appid'] = $this->app['config']->app_id;
-        $params['notify_url'] = $params['notify_url'] ?? $this->app['config']['notify_url'];
+        $params['notify_url'] = $params['notify_url'] ?: $this->app['config']['notify_url'];
 
         return $this->request($this->wrap('pay/unifiedorder'), $params);
     }
@@ -46,7 +46,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function queryByOutTradeNumber(string $number)
+    public function queryByOutTradeNumber($number)
     {
         return $this->query([
             'out_trade_no' => $number,
@@ -62,7 +62,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function queryByTransactionId(string $transactionId)
+    public function queryByTransactionId($transactionId)
     {
         return $this->query([
             'transaction_id' => $transactionId,
@@ -92,7 +92,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function close(string $tradeNo)
+    public function close($tradeNo)
     {
         $params = [
             'appid' => $this->app['config']->app_id,

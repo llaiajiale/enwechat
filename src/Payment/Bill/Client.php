@@ -26,7 +26,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function get(string $date, string $type = 'ALL', array $optional = [])
+    public function get($date, $type = 'ALL', array $optional = [])
     {
         $params = [
             'appid' => $this->app['config']->app_id,

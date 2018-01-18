@@ -47,7 +47,7 @@ class Video extends Media
      * @param string $mediaId
      * @param array  $attributes
      */
-    public function __construct(string $mediaId, array $attributes = [])
+    public function __construct($mediaId, array $attributes = [])
     {
         parent::__construct($mediaId, 'video', $attributes);
     }

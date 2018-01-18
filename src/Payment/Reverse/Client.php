@@ -24,7 +24,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function byOutTradeNumber(string $outTradeNumber)
+    public function byOutTradeNumber($outTradeNumber)
     {
         return $this->reverse($outTradeNumber, 'out_trade_no');
     }
@@ -38,7 +38,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function byTransactionId(string $transactionId)
+    public function byTransactionId($transactionId)
     {
         return $this->reverse($transactionId, 'transaction_id');
     }
@@ -53,7 +53,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    protected function reverse(string $number, string $type)
+    protected function reverse($number, $type)
     {
         $params = [
             'appid' => $this->app['config']->app_id,

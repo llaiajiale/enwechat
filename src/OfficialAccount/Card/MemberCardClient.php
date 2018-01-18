@@ -38,7 +38,7 @@ class MemberCardClient extends Client
      *
      * @return mixed
      */
-    public function setActivationForm(string $cardId, array $settings)
+    public function setActivationForm($cardId, array $settings)
     {
         $params = array_merge(['card_id' => $cardId], $settings);
 
@@ -53,7 +53,7 @@ class MemberCardClient extends Client
      *
      * @return mixed
      */
-    public function getUser(string $cardId, string $code)
+    public function getUser($cardId, $code)
     {
         $params = [
             'card_id' => $cardId,

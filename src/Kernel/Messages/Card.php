@@ -45,7 +45,7 @@ class Card extends Message
      *
      * @param string $cardId
      */
-    public function __construct(string $cardId)
+    public function __construct($cardId)
     {
         parent::__construct(['card_id' => $cardId]);
     }

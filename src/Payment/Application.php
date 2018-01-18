@@ -33,7 +33,7 @@ use EasyWeChat\OfficialAccount;
  * @property \EasyWeChat\OfficialAccount\Auth\AccessToken  $access_token
  *
  * @method mixed pay(array $attributes)
- * @method mixed authCodeToOpenid(string $authCode)
+ * @method mixed authCodeToOpenid($authCode)
  */
 class Application extends ServiceContainer
 {

@@ -25,7 +25,7 @@ class Scanned extends Handler
     /**
      * @param string $message
      */
-    public function alert(string $message)
+    public function alert($message)
     {
         $this->alert = $message;
     }

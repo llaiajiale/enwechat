@@ -27,11 +27,11 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function handleAuthorize(string $authCode = null)
+    public function handleAuthorize($authCode = null)
     {
         $params = [
             'component_appid' => $this->app['config']['app_id'],
-            'authorization_code' => $authCode ?? $this->app['request']->get('auth_code'),
+            'authorization_code' => $authCode ?: $this->app['request']->get('auth_code'),
         ];
 
         return $this->httpPostJson('cgi-bin/component/api_query_auth', $params);
@@ -44,7 +44,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function getAuthorizer(string $appId)
+    public function getAuthorizer($appId)
     {
         $params = [
             'component_appid' => $this->app['config']['app_id'],
@@ -62,7 +62,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function getAuthorizerOption(string $appId, string $name)
+    public function getAuthorizerOption($appId, $name)
     {
         $params = [
             'component_appid' => $this->app['config']['app_id'],
@@ -82,7 +82,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function setAuthorizerOption(string $appId, string $name, string $value)
+    public function setAuthorizerOption($appId, $name, $value)
     {
         $params = [
             'component_appid' => $this->app['config']['app_id'],

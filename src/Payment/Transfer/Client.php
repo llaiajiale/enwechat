@@ -32,7 +32,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function queryBalanceOrder(string $partnerTradeNo)
+    public function queryBalanceOrder($partnerTradeNo)
     {
         $params = [
             'appid' => $this->app['config']->app_id,
@@ -76,7 +76,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function queryBankCardOrder(string $partnerTradeNo)
+    public function queryBankCardOrder($partnerTradeNo)
     {
         $params = [
             'mch_id' => $this->app['config']->mch_id,

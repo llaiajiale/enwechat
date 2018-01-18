@@ -27,7 +27,7 @@ class Client extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function bind(string $wechatId)
+    public function bind($wechatId)
     {
         return $this->httpPostJson('wxa/bind_tester', [
             'wechatid' => $wechatId,
@@ -41,7 +41,7 @@ class Client extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function unbind(string $wechatId)
+    public function unbind($wechatId)
     {
         return $this->httpPostJson('wxa/unbind_tester', [
             'wechatid' => $wechatId,

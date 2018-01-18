@@ -43,7 +43,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function querySubMerchantByMerchantId(string $id)
+    public function querySubMerchantByMerchantId($id)
     {
         $params = [
             'micro_mch_id' => $id,
@@ -61,7 +61,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function querySubMerchantByWeChatId(string $id)
+    public function querySubMerchantByWeChatId($id)
     {
         $params = [
             'recipient_wechatid' => $id,

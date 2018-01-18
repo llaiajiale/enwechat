@@ -47,7 +47,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function session(string $code)
+    public function session($code)
     {
         $params = [
             'appid' => $this->app['config']['app_id'],

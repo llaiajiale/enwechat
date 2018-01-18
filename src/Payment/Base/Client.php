@@ -40,7 +40,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
-    public function authCodeToOpenid(string $authCode)
+    public function authCodeToOpenid($authCode)
     {
         return $this->request('tools/authcodetoopenid', [
             'appid' => $this->app['config']->app_id,

@@ -96,7 +96,7 @@ class Client extends BaseClient
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      */
-    public function upload(string $type, string $path)
+    public function upload($type, $path)
     {
         if (!file_exists($path) || !is_readable($path)) {
             throw new InvalidArgumentException(sprintf("File does not exist, or the file is unreadable: '%s'", $path));
@@ -116,7 +116,7 @@ class Client extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function uploadVideoForBroadcasting(string $path, string $title, string $description)
+    public function uploadVideoForBroadcasting($path, $title, $description)
     {
         $response = $this->uploadVideo($path);
         $arrayResponse = $this->detectAndCastResponseToType($response, 'array');
@@ -135,7 +135,7 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function createVideoForBroadcasting(string $mediaId, string $title, string $description)
+    public function createVideoForBroadcasting($mediaId, $title, $description)
     {
         return $this->httpPostJson('media/uploadvideo', [
             'media_id' => $mediaId,
@@ -151,7 +151,7 @@ class Client extends BaseClient
      *
      * @return \EasyWeChat\Kernel\Http\StreamResponse|\Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function get(string $mediaId)
+    public function get($mediaId)
     {
         $response = $this->requestRaw('media/get', 'GET', [
             'query' => [
@@ -171,7 +171,7 @@ class Client extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Http\Response|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function getJssdkMedia(string $mediaId)
+    public function getJssdkMedia($mediaId)
     {
         $response = $this->requestRaw('media/get/jssdk', 'GET', [
             'query' => [
