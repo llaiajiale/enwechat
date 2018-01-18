@@ -31,7 +31,7 @@ use EasyWeChat\OpenPlatform\Authorizer\Server\Guard;
  * @method mixed getAuthorizer(string $appId)
  * @method mixed getAuthorizerOption(string $appId, string $name)
  * @method mixed setAuthorizerOption(string $appId, string $name, string $value)
- * @method mixed getAuthorizers(int $offset = 0, int $count = 500)
+ * @method mixed getAuthorizers($offset = 0, $count = 500)
  * @method mixed createPreAuthorizationCode()
  */
 class Application extends ServiceContainer

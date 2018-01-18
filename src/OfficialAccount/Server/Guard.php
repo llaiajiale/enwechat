@@ -23,7 +23,7 @@ class Guard extends ServerGuard
     /**
      * @return bool
      */
-    protected function shouldReturnRawResponse(): bool
+    protected function shouldReturnRawResponse()
     {
         return !is_null($this->app['request']->get('echostr'));
     }

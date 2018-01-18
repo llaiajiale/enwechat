@@ -58,7 +58,7 @@ class AccessToken extends BaseAccessToken
     /**
      * {@inheritdoc}.
      */
-    protected function getCredentials(): array
+    protected function getCredentials()
     {
         return [
             'component_appid' => $this->component['config']['app_id'],
@@ -70,7 +70,7 @@ class AccessToken extends BaseAccessToken
     /**
      * @return string
      */
-    public function getEndpoint(): string
+    public function getEndpoint()
     {
         return 'cgi-bin/component/api_authorizer_token?'.http_build_query([
             'component_access_token' => $this->component['access_token']->getToken()['component_access_token'],

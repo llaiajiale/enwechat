@@ -78,7 +78,7 @@ abstract class Handler
     /**
      * @param string $message
      */
-    public function fail(string $message)
+    public function fail($message)
     {
         $this->fail = $message;
     }
@@ -89,7 +89,7 @@ abstract class Handler
      *
      * @return $this
      */
-    public function respondWith(array $attributes, bool $sign = false)
+    public function respondWith(array $attributes, $sign = false)
     {
         $this->attributes = $attributes;
         $this->sign = $sign;
@@ -102,7 +102,7 @@ abstract class Handler
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function toResponse(): Response
+    public function toResponse()
     {
         $base = [
             'return_code' => is_null($this->fail) ? static::SUCCESS : static::FAIL,
@@ -125,7 +125,7 @@ abstract class Handler
      *
      * @throws \EasyWeChat\Kernel\Exceptions\Exception
      */
-    public function getMessage(): array
+    public function getMessage()
     {
         if (!empty($this->message)) {
             return $this->message;
@@ -157,7 +157,7 @@ abstract class Handler
      *
      * @throws \EasyWeChat\Kernel\Exceptions\Exception
      */
-    public function decryptMessage(string $key)
+    public function decryptMessage($key)
     {
         $message = $this->getMessage();
         if (empty($message[$key])) {

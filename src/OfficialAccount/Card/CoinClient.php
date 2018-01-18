@@ -34,7 +34,7 @@ class CoinClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function getPrice(string $cardId, int $quantity)
+    public function getPrice($cardId, $quantity)
     {
         return $this->httpPostJson('card/pay/getpayprice', [
             'card_id' => $cardId,
@@ -55,7 +55,7 @@ class CoinClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function recharge(int $count)
+    public function recharge($count)
     {
         return $this->httpPostJson('card/pay/recharge', [
             'coin_count' => 100,
@@ -67,7 +67,7 @@ class CoinClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function order(string $orderId)
+    public function order($orderId)
     {
         return $this->httpPostJson('card/pay/getorder', ['order_id' => $orderId]);
     }
@@ -89,7 +89,7 @@ class CoinClient extends BaseClient
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
-    public function confirm(string $cardId, string $orderId, int $quantity)
+    public function confirm($cardId, $orderId, $quantity)
     {
         return $this->httpPostJson('card/pay/confirm', [
             'card_id' => $cardId,

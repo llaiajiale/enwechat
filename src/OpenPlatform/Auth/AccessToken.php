@@ -38,7 +38,7 @@ class AccessToken extends BaseAccessToken
     /**
      * @return array
      */
-    protected function getCredentials(): array
+    protected function getCredentials()
     {
         return [
             'component_appid' => $this->app['config']['app_id'],

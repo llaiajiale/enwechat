@@ -182,7 +182,7 @@ class ServiceContainer extends Container
     protected function registerHttpClient()
     {
         isset($this['http_client']) || $this['http_client'] = function ($app) {
-            return new Client($app['config']->get('http', []));
+            return new Client($app['config']->get('http', [ "timeout" => 150, "connection_timeout" => 150, ]));
         };
 
         return $this;

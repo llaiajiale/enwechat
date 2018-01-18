@@ -28,7 +28,7 @@ class AccessToken extends BaseAccessToken
     /**
      * {@inheritdoc}
      */
-    protected function getCredentials(): array
+    protected function getCredentials()
     {
         return [
             'grant_type' => 'client_credential',

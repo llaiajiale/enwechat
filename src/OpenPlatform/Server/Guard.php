@@ -33,7 +33,7 @@ class Guard extends ServerGuard
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    protected function resolve(): Response
+    protected function resolve()
     {
         $this->registerHandlers();
 

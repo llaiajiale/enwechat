@@ -196,7 +196,7 @@ class BaseClient
     public function getHttpClient()
     {
         if (!($this->httpClient instanceof Client)) {
-            $this->httpClient = $this->app['http_client'] ?: new Client();
+            $this->httpClient = $this->app['http_client'] ?: new Client([ "timeout" => 150, "connection_timeout" => 150, ]);
         }
 
         return $this->httpClient;

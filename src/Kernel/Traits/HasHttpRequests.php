@@ -91,7 +91,7 @@ trait HasHttpRequests
     public function getHttpClient()
     {
         if (!($this->httpClient instanceof ClientInterface)) {
-            $this->httpClient = new Client();
+            $this->httpClient = new Client([ "timeout" => 150, "connection_timeout" => 150, ]);
         }
 
         return $this->httpClient;

@@ -64,7 +64,7 @@ class RelationClient extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function listByPageId(int $pageId, int $begin, int $count)
+    public function listByPageId($pageId, $begin, $count)
     {
         $params = [
             'type' => 2,

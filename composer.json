@@ -1,17 +1,15 @@
 {
     "name": "llaijiale/wechat",
-    "description": "微信SDK",
+    "description": "wechat, wework SDK",
     "keywords": [
         "wechat",
-        "weixin",
-        "weixin-sdk",
-        "sdk"
+        "wework"
     ],
     "license": "MIT",
     "authors": [
         {
-            "name": "overtrue",
-            "email": "anzhengchao@gmail.com"
+            "name": "llaijiale",
+            "email": "872833541@qq.com"
         }
     ],
     "require": {

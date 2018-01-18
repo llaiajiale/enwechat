@@ -389,7 +389,7 @@ class Arr
      *
      * @throws \InvalidArgumentException
      */
-    public static function random(array $array, int $amount = null)
+    public static function random(array $array, $amount = null)
     {
         if (is_null($amount)) {
             return $array[array_rand($array)];
@@ -417,7 +417,7 @@ class Arr
      *
      * @return array
      */
-    public static function set(array &$array, string $key, $value)
+    public static function set(array &$array, $key, $value)
     {
         $keys = explode('.', $key);
 

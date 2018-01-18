@@ -28,7 +28,7 @@ class AccessToken extends BaseAccessToken
     /**
      * @return array
      */
-    protected function getCredentials(): array
+    protected function getCredentials()
     {
         return [
             'grant_type' => 'client_credential',
