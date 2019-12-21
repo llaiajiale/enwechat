@@ -51,10 +51,16 @@ class Client extends BaseClient
      */
     public function sendNormal(array $params)
     {
+        if(key_exists('client_ip', $params)){
+            $client_ip = $params['client_ip'];
+        } else {
+            $client_ip = Support\get_server_ip();
+        }
+
         $base = [
             'total_num' => 1,
-            //'client_ip' =>  $params['client_ip'] ?: Support\get_server_ip(),
-            'client_ip' =>  data_get($params, 'client_ip', Support\get_server_ip()),
+            'client_ip' =>  $client_ip,
+            //'client_ip' =>  data_get($params, 'client_ip', Support\get_server_ip()),
             'wxappid' => $this->app['config']->app_id,
         ];
 
