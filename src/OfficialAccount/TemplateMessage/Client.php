@@ -12,6 +12,7 @@
 namespace EasyWeChat\OfficialAccount\TemplateMessage;
 
 use EasyWeChat\Kernel\BaseClient;
+use function EasyWeChat\Kernel\data_get;
 use EasyWeChat\Kernel\Exceptions\InvalidArgumentException;
 use ReflectionClass;
 
@@ -164,7 +165,8 @@ class Client extends BaseClient
             $params[$key] = empty($value) ? $this->message[$key] : $value;
         }
 
-        $params['data'] = $this->formatData($params['data'] ?: []);
+//        $params['data'] = $this->formatData($params['data'] ?: []);
+        $params['data'] = $this->formatData(data_get($params, 'data', []));
 
         return $params;
     }

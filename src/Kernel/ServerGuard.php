@@ -250,11 +250,14 @@ class ServerGuard
 
         $messageArray = $this->detectAndCastResponseToType($castedMessage, 'array');
 
-        $response = $this->dispatch(self::MESSAGE_TYPE_MAPPING[$messageArray['MsgType'] ?: $messageArray['msg_type'] ?: 'text'], $castedMessage);
+        //$response = $this->dispatch(self::MESSAGE_TYPE_MAPPING[$messageArray['MsgType'] ?: $messageArray['msg_type'] ?: 'text'], $castedMessage);
+        $response = $this->dispatch(self::MESSAGE_TYPE_MAPPING[data_get($messageArray, 'MsgType', data_get($messageArray, 'msg_type', 'text'))], $castedMessage);
 
         return [
-            'to' => $messageArray['FromUserName'] ?: '',
-            'from' => $messageArray['ToUserName'] ?: '',
+//            'to' => $messageArray['FromUserName'] ?: '',
+//            'from' => $messageArray['ToUserName'] ?: '',
+            'to' => data_get($messageArray,'FromUserName', ''),
+            'from' => data_get($messageArray, 'ToUserName',  ''),
             'response' => $response,
         ];
     }

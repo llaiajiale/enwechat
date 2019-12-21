@@ -11,6 +11,7 @@
 
 namespace EasyWeChat\Payment\Order;
 
+use function EasyWeChat\Kernel\data_get;
 use EasyWeChat\Kernel\Support;
 use EasyWeChat\Payment\Kernel\BaseClient;
 
@@ -32,7 +33,9 @@ class Client extends BaseClient
         }
 
         $params['appid'] = $this->app['config']->app_id;
-        $params['notify_url'] = $params['notify_url'] ?: $this->app['config']['notify_url'];
+//        $params['notify_url'] = $params['notify_url'] ?: $this->app['config']['notify_url'];
+
+        $params['notify_url'] = data_get($params, 'notify_url',$this->app['config']['notify_url']);
 
         return $this->request($this->wrap('pay/unifiedorder'), $params);
     }

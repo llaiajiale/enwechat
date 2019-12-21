@@ -12,6 +12,7 @@
 namespace EasyWeChat\Kernel\Messages;
 
 use EasyWeChat\Kernel\Contracts\MessageInterface;
+use function EasyWeChat\Kernel\data_get;
 use EasyWeChat\Kernel\Support\XML;
 use EasyWeChat\Kernel\Traits\HasAttributes;
 use Mockery\Exception\BadMethodCallException;
@@ -155,7 +156,8 @@ class Message implements MessageInterface
         $messageType = $this->getType();
         $data = array_merge(['msgtype' => $messageType], $appends);
 
-        $data[$messageType] = array_merge($data[$messageType] ?: [], $this->propertiesToArray([], $this->jsonAliases));
+//        $data[$messageType] = array_merge($data[$messageType] ?: [], $this->propertiesToArray([], $this->jsonAliases));
+        $data[$messageType] = array_merge(data_get($data, $messageType, []), $this->propertiesToArray([], $this->jsonAliases));
 
         return $data;
     }

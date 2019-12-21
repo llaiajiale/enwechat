@@ -12,6 +12,7 @@
 namespace EasyWeChat\OfficialAccount\Card;
 
 use EasyWeChat\BasicService\Jssdk\Client as Jssdk;
+use function EasyWeChat\Kernel\data_get;
 use EasyWeChat\Kernel\Support\Arr;
 use function EasyWeChat\Kernel\Support\str_random;
 
@@ -66,7 +67,7 @@ class JssdkClient extends Jssdk
             ['code', 'openid', 'outer_id', 'balance', 'fixed_begintimestamp', 'outer_str']
         ));
 
-        $ext['signature'] = $this->dictionaryOrderSignature($ticket, $timestamp, $cardId, $ext['code'] ?: '', $ext['openid'] ?: '', $nonce);
+        $ext['signature'] = $this->dictionaryOrderSignature($ticket, $timestamp, $cardId, data_get($ext, 'code', ''), data_get($ext, 'openid', ''), $nonce);
 
         return [
             'cardId' => $cardId,

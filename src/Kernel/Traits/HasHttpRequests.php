@@ -11,6 +11,7 @@
 
 namespace EasyWeChat\Kernel\Traits;
 
+use function EasyWeChat\Kernel\data_get;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
@@ -193,7 +194,9 @@ trait HasHttpRequests
     protected function fixJsonIssue(array $options)
     {
         if (isset($options['json']) && is_array($options['json'])) {
-            $options['headers'] = array_merge($options['headers'] ?: [], ['Content-Type' => 'application/json']);
+            //$options['headers'] = array_merge($options['headers'] ?: [], ['Content-Type' => 'application/json']);
+
+            $options['headers'] = array_merge(data_get($options, 'headers', []), ['Content-Type' => 'application/json']);
 
             if (empty($options['json'])) {
                 $options['body'] = \GuzzleHttp\json_encode($options['json'], JSON_FORCE_OBJECT);

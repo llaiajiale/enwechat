@@ -1,6 +1,7 @@
 {
     "name": "llaijiale/wechat",
     "description": "wechat, wework SDK",
+    "version":"5.0.5",
     "keywords": [
         "wechat",
         "wework"
